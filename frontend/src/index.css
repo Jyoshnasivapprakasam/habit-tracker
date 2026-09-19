@@ -1,0 +1,479 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+/* ==============================
+   Habit Calendar Styling
+   ============================== */
+
+.calendar-section {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 30px;
+}
+
+.calendar-section h2 {
+  margin: 0 0 22px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 700px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 18px;
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.react-calendar__navigation button {
+  min-width: 40px;
+  background: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.react-calendar__navigation button:hover {
+  background: #f2f2f2;
+}
+
+.react-calendar__month-view__weekdays {
+  font-size: 11px;
+  font-weight: 600;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 10px 0;
+}
+
+.react-calendar__tile {
+  position: relative;
+  min-height: 58px;
+  padding: 10px 5px;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #222;
+  cursor: pointer;
+}
+
+.react-calendar__tile:hover {
+  background: #f3f3f3;
+}
+
+.react-calendar__tile--now {
+  background: #f0f0f0;
+  font-weight: 700;
+}
+
+.react-calendar__tile--active {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+.react-calendar__tile--active:hover {
+  background: #2c2c2c !important;
+}
+
+/* Completed day indicator */
+
+.calendar-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #111111;
+  border-radius: 50%;
+  display: block;
+  margin: 4px auto 0;
+}
+
+.react-calendar__tile--active .calendar-dot {
+  background-color: #ffffff;
+}
+
+
+/* ==============================
+   Selected Date
+   ============================== */
+
+.selected-date {
+  margin: 0 0 18px;
+  font-size: 18px;
+  font-weight: 650;
+  color: #222;
+}
+
+
+/* ==============================
+   Habit Status
+   ============================== */
+
+.habit-status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.completed-list,
+.not-completed-list {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.completed-list h3,
+.not-completed-list h3 {
+  margin: 0 0 15px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.completed-list p,
+.not-completed-list p {
+  margin: 8px 0;
+  padding: 9px 12px;
+  border-radius: 7px;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  font-size: 13px;
+  color: #444;
+}
+
+
+/* ==============================
+   Calendar Mobile
+   ============================== */
+
+@media (max-width: 700px) {
+  .calendar-section {
+    padding: 24px 20px;
+  }
+
+  .habit-status {
+    grid-template-columns: 1fr;
+  }
+
+  .react-calendar {
+    padding: 10px;
+  }
+
+  .react-calendar__tile {
+    min-height: 48px;
+  }
+}
+/* ==============================
+   Habit Heatmap
+   ============================== */
+
+.heatmap-section {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 30px;
+}
+
+.heatmap-section .section-heading {
+  margin-bottom: 24px;
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+}
+
+.heatmap-empty {
+  background: #f3f3f3;
+}
+
+.heatmap-low {
+  background: #cfcfcf;
+}
+
+.heatmap-medium {
+  background: #777777;
+}
+
+.heatmap-full {
+  background: #111111;
+}
+
+.heatmap-cell:hover {
+  border-color: #111111;
+  transform: scale(1.08);
+}
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #777777;
+}
+
+.legend-box {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+}
+
+@media (max-width: 700px) {
+  .heatmap-section {
+    padding: 24px 20px;
+  }
+
+  .heatmap {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3px;
+  }
+
+  .heatmap-legend {
+    font-size: 11px;
+  }
+}
+/* ==============================
+   Heatmap Button
+   ============================== */
+
+.heatmap-wrapper {
+  margin-bottom: 30px;
+}
+
+.heatmap-button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 11px 20px;
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.heatmap-button:hover {
+  background: #2c2c2c;
+}
+/* ==============================
+   Automatic Insights
+   ============================== */
+
+.automatic-insights-section {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 30px;
+}
+
+.automatic-insights-section .section-heading {
+  margin-bottom: 22px;
+}
+
+.automatic-insights-list {
+  display: grid;
+  gap: 12px;
+}
+
+.automatic-insight-card {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.automatic-insight-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.insight-empty {
+  margin: 0;
+  font-size: 14px;
+  color: #777777;
+}
+
+@media (max-width: 700px) {
+  .automatic-insights-section {
+    padding: 24px 20px;
+  }
+}
+/* ==============================
+   Habit Trend
+   ============================== */
+
+.trend-section {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 18px;
+  padding: 30px 32px;
+  margin-bottom: 30px;
+}
+
+.trend-section .section-heading {
+  margin-bottom: 22px;
+}
+
+.trend-card {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.trend-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+@media (max-width: 700px) {
+  .trend-section {
+    padding: 24px 20px;
+  }
+}
