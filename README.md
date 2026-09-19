@@ -62,3 +62,24 @@ Habit Tracker Project/
 ├── .gitignore
 ├── README.md
 └── start_habit_tracker.bat
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Today's Habits
+
+![Today's Habits](screenshots/today_habit.png)
+
+### Analytics
+
+![Analytics](screenshots/analytics.png)
+
+### Habit Calendar
+
+![Habit Calendar](screenshots/calendar.png)
+
+### Habit Insights and Trend
+
+![Habit Insights](screenshots/insights.png)
