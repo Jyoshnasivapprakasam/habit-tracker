@@ -62,6 +62,7 @@ Habit Tracker Project/
 ├── .gitignore
 ├── README.md
 └── start_habit_tracker.bat
+```
 ## Screenshots
 
 ### Dashboard
