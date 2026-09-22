@@ -676,6 +676,37 @@ if (
           <p>{habitTrend}</p>
         </div>
       </section>
+
+      {/* Add Habit */}
+
+      <section className="add-habit-section">
+        <div className="section-heading">
+          <div>
+            <p className="section-label">HABITS</p>
+            <h2>Add Habit</h2>
+            <p>Create a new daily habit to track.</p>
+          </div>
+        </div>
+
+        <form
+          className="add-habit-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            addHabit();
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Enter habit name"
+            value={habitName}
+            onChange={(e) => setHabitName(e.target.value)}
+          />
+
+          <button type="submit">
+            Add Habit
+          </button>
+        </form>
+      </section>
      
 
       {/* Today's Habits */}
